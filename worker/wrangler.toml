@@ -1,0 +1,17 @@
+name = "abj-crm"
+main = "src/index.js"
+compatibility_date = "2026-07-01"
+
+[assets]
+directory = "public"
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "abj-crm"
+database_id = "6cfa8c66-c14b-4cde-a703-9e07993fba29"
+
+[[routes]]
+pattern = "crm.aussiebridgejapan.com"
+custom_domain = true

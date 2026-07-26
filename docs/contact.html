@@ -76,9 +76,10 @@
             <div><label for="fCompany">Brand / Company</label><input id="fCompany"></div>
             <div><label for="fPhone">Phone</label><input id="fPhone"></div>
             <div class="full"><label for="fMsg">How Can We Help?</label><textarea id="fMsg" rows="5"></textarea></div>
+            <input id="fHp" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
             <div class="full"><button type="submit" class="btn btn-gold" style="width:100%">Send Inquiry</button></div>
           </form>
-          <p style="font-size:12.5px;color:rgba(26,26,26,0.5);margin-top:12px">Submitting opens a pre-filled email in your mail app addressed to us — nothing is stored on this website.</p>
+          <p style="font-size:12.5px;color:rgba(26,26,26,0.5);margin-top:12px">Your inquiry goes straight to our team — we typically reply within one business day.</p>
         </div>
       </div>
     </div>
@@ -130,11 +131,26 @@
 
 <script src="assets/site.js"></script>
 <script>
-  document.getElementById('inquiryForm').addEventListener('submit', function (e) {
+  document.getElementById('inquiryForm').addEventListener('submit', async function (e) {
     e.preventDefault();
     var v = function (id) { return document.getElementById(id).value.trim(); };
-    var body = 'Name: ' + v('fName') + '\nEmail: ' + v('fEmail') + '\nBrand/Company: ' + v('fCompany') + '\nPhone: ' + v('fPhone') + '\n\n' + v('fMsg');
-    location.href = 'mailto:aussiebridgejapan@outlook.com?subject=' + encodeURIComponent('Website Inquiry — ' + (v('fCompany') || v('fName'))) + '&body=' + encodeURIComponent(body);
+    var btn = document.querySelector('#inquiryForm button[type=submit]');
+    btn.disabled = true; btn.textContent = 'Sending…';
+    try {
+      var res = await fetch('https://crm.aussiebridgejapan.com/api/lead', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: v('fName'), email: v('fEmail'), company: v('fCompany'),
+          phone: v('fPhone'), message: v('fMsg'), source: 'website-contact', website: v('fHp') })
+      });
+      if (!res.ok) throw new Error('send failed');
+      document.getElementById('inquiryForm').innerHTML =
+        '<p class="full" style="font-size:16px;padding:20px;background:var(--gold-soft)">Thanks — your inquiry is in. We\'ll be in touch within one business day.</p>';
+    } catch (err) {
+      // fallback: open a pre-filled email instead
+      btn.disabled = false; btn.textContent = 'Send Inquiry';
+      var body = 'Name: ' + v('fName') + '\nEmail: ' + v('fEmail') + '\nBrand/Company: ' + v('fCompany') + '\nPhone: ' + v('fPhone') + '\n\n' + v('fMsg');
+      location.href = 'mailto:aussiebridgejapan@outlook.com?subject=' + encodeURIComponent('Website Inquiry — ' + (v('fCompany') || v('fName'))) + '&body=' + encodeURIComponent(body);
+    }
   });
 </script>
 </body>

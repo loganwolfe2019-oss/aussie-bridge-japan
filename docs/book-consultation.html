@@ -65,9 +65,10 @@
           <div><label for="bCompany">Brand / Company *</label><input id="bCompany" required></div>
           <div><label for="bPhone">Phone</label><input id="bPhone"></div>
           <div class="full"><label for="bMsg">Tell us about your product and goals for Japan</label><textarea id="bMsg" rows="5"></textarea></div>
+          <input id="bHp" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
           <div class="full"><button type="submit" class="btn btn-gold" style="width:100%">Request Free Consultation</button></div>
         </form>
-        <p style="font-size:12.5px;color:rgba(26,26,26,0.5);margin-top:12px">Submitting opens a pre-filled email in your mail app addressed to us — we'll reply to arrange a time that suits you (AEST or JST).</p>
+        <p style="font-size:12.5px;color:rgba(26,26,26,0.5);margin-top:12px">Your request goes straight to our team — we'll reply to arrange a time that suits you (AEST or JST).</p>
       </div>
     </div>
   </section>
@@ -126,11 +127,27 @@
       chosenCat = b.dataset.cat;
     });
   });
-  document.getElementById('bookForm').addEventListener('submit', function (e) {
+  document.getElementById('bookForm').addEventListener('submit', async function (e) {
     e.preventDefault();
     var v = function (id) { return document.getElementById(id).value.trim(); };
-    var body = 'Product category: ' + (chosenCat || 'Not selected') + '\nName: ' + v('bName') + '\nEmail: ' + v('bEmail') + '\nBrand/Company: ' + v('bCompany') + '\nPhone: ' + v('bPhone') + '\n\n' + v('bMsg');
-    location.href = 'mailto:aussiebridgejapan@outlook.com?subject=' + encodeURIComponent('Free Consultation Request — ' + v('bCompany')) + '&body=' + encodeURIComponent(body);
+    var btn = document.querySelector('#bookForm button[type=submit]');
+    btn.disabled = true; btn.textContent = 'Sending…';
+    try {
+      var res = await fetch('https://crm.aussiebridgejapan.com/api/lead', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: v('bName'), email: v('bEmail'), company: v('bCompany'),
+          phone: v('bPhone'), message: v('bMsg'), category: chosenCat || 'Other',
+          source: 'website-booking', website: v('bHp') })
+      });
+      if (!res.ok) throw new Error('send failed');
+      document.getElementById('bookForm').innerHTML =
+        '<p class="full" style="font-size:16px;padding:20px;background:var(--gold-soft)">Thanks — your consultation request is in. We\'ll reply to arrange a time that suits you.</p>';
+    } catch (err) {
+      // fallback: open a pre-filled email instead
+      btn.disabled = false; btn.textContent = 'Request Free Consultation';
+      var body = 'Product category: ' + (chosenCat || 'Not selected') + '\nName: ' + v('bName') + '\nEmail: ' + v('bEmail') + '\nBrand/Company: ' + v('bCompany') + '\nPhone: ' + v('bPhone') + '\n\n' + v('bMsg');
+      location.href = 'mailto:aussiebridgejapan@outlook.com?subject=' + encodeURIComponent('Free Consultation Request — ' + v('bCompany')) + '&body=' + encodeURIComponent(body);
+    }
   });
 </script>
 </body>

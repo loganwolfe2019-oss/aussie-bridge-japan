@@ -8,3 +8,7 @@ Thumbs.db
 
 # Claude Code local settings
 .claude/settings.local.json
+
+# Worker tooling
+worker/node_modules/
+worker/.wrangler/
