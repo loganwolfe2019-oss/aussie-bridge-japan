@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | Aussie Bridge Japan</title>
+<meta name="description" content="Expert analysis on the Japanese market, import regulations, and strategies for Australian brands.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+  .filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
+  .filters button { font-family: var(--sans); font-size: 13.5px; font-weight: 500; padding: 10px 20px; background: #fff; border: 1px solid var(--line); cursor: pointer; transition: all .2s; }
+  .filters button.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+  .posts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; }
+  @media (max-width: 800px) { .posts { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a href="../index.html" class="logo">Aussie Bridge<small>Japan</small></a>
+    <nav aria-label="Main">
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../services.html">Services</a></li>
+        <li><a href="../market-entry.html">Market Entry</a></li>
+        <li><a href="./" aria-current="page">Blog</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="../ja/" lang="ja">日本語</a></li>
+        <li><a class="btn btn-gold" href="../book-consultation.html">Book Consultation</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <div class="page-hero">
+    <div class="wrap">
+      <span class="kicker">Blog</span>
+      <h1>Insights &amp; <span class="accent-i">Intelligence</span></h1>
+      <p class="lede">Expert analysis on the Japanese market, import regulations, and strategies for Australian brands.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="filters" role="group" aria-label="Filter articles">
+        <button class="active" data-cat="all">All Articles</button>
+        <button data-cat="Market Entry Strategy">Market Entry Strategy</button>
+        <button data-cat="Japanese Alcohol Market">Japanese Alcohol Market</button>
+        <button data-cat="Beverage Distribution">Beverage Distribution</button>
+      </div>
+
+      <div class="posts">
+        <a class="post-card reveal" data-cat="Market Entry Strategy" href="first-year-selling-in-japan.html">
+          <span class="cat">Market Entry Strategy · 5 min read</span>
+          <h3>What to Expect in Your First Year Selling in Japan — A Realistic Guide for Australian Brands</h3>
+          <p>Japan rewards patience. Here is what a realistic first year in Japan looks like for a brand working with Aussie Bridge Japan — and what success actually looks like at the end of it.</p>
+          <span class="more">Read More →</span>
+        </a>
+        <a class="post-card reveal" data-cat="Japanese Alcohol Market" href="australian-craft-beer-rtds-japan.html">
+          <span class="cat">Japanese Alcohol Market · 5 min read</span>
+          <h3>Five Reasons Australian Craft Beer and RTDs Are Built for the Japanese Market</h3>
+          <p>Not every export market suits every product. Japan and Australian craft beverages, however, are a natural match — for reasons that go deeper than taste.</p>
+          <span class="more">Read More →</span>
+        </a>
+        <a class="post-card reveal" data-cat="Beverage Distribution" href="sunshine-coast-to-nagoya.html">
+          <span class="cat">Beverage Distribution · 5 min read</span>
+          <h3>Sunshine Coast to Nagoya — How We Get Australian Flavour to Japanese Tables</h3>
+          <p>How does a product made in Queensland end up on a bar counter in Nagoya? It takes a functioning supply chain, trusted relationships at both ends, and meticulous attention to documentation.</p>
+          <span class="more">Read More →</span>
+        </a>
+        <a class="post-card reveal" data-cat="Japanese Alcohol Market" href="japanese-hospitality-buyers.html">
+          <span class="cat">Japanese Alcohol Market · 5 min read</span>
+          <h3>What Japanese Hospitality Buyers Actually Look For in an Imported Beverage</h3>
+          <p>Understanding how Japanese hospitality buyers think is the difference between a product that gains traction and one that quietly disappears. Here's what actually matters to them.</p>
+          <span class="more">Read More →</span>
+        </a>
+        <a class="post-card reveal" data-cat="Market Entry Strategy" href="japan-most-exciting-market.html">
+          <span class="cat">Market Entry Strategy · 5 min read</span>
+          <h3>Why Japan is the World's Most Exciting Market for Australian Craft Beverages Right Now</h3>
+          <p>Several things are converging right now that make Japan particularly strong timing for Australian craft beverage brands — discerning consumers, growing craft culture, and a genuine first-mover advantage in key categories.</p>
+          <span class="more">Read More →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-bottom" style="border-top:0;padding-top:0">
+      <span>© 2026 Aussie Bridge Japan. All rights reserved.</span>
+      <span><a href="../privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="../terms-of-service.html">Terms of Service</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/site.js"></script>
+<script>
+  document.querySelectorAll('.filters button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('.filters button').forEach(function (x) { x.classList.remove('active'); });
+      b.classList.add('active');
+      document.querySelectorAll('.post-card').forEach(function (c) {
+        c.style.display = (b.dataset.cat === 'all' || c.dataset.cat === b.dataset.cat) ? '' : 'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>
