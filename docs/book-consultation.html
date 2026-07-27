@@ -60,17 +60,14 @@
 
       <div class="reveal" style="margin-top:56px">
         <span class="kicker">Step 2</span>
-        <h2 style="margin:18px 0 28px;font-size:clamp(26px,3vw,36px)">Your <span class="accent-i">details</span></h2>
-        <form id="bookForm" class="form-grid">
-          <div><label for="bName">Your Name *</label><input id="bName" required></div>
-          <div><label for="bEmail">Email *</label><input id="bEmail" type="email" required></div>
-          <div><label for="bCompany">Brand / Company *</label><input id="bCompany" required></div>
-          <div><label for="bPhone">Phone</label><input id="bPhone"></div>
-          <div class="full"><label for="bMsg">Tell us about your product and goals for Japan</label><textarea id="bMsg" rows="5"></textarea></div>
-          <input id="bHp" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
-          <div class="full"><button type="submit" class="btn btn-gold" style="width:100%">Request Free Consultation</button></div>
-        </form>
-        <p style="font-size:12.5px;color:rgba(26,26,26,0.5);margin-top:12px">Your request goes straight to our team — we'll reply to arrange a time that suits you (AEST or JST).</p>
+        <h2 style="margin:18px 0 12px;font-size:clamp(26px,3vw,36px)">Pick a <span class="accent-i">time</span></h2>
+        <p class="lede" style="margin-bottom:8px" id="catHint">Grab a slot below — mention your product category (<span id="catName">whatever you selected above</span>) when you book, so we come prepared.</p>
+        <p style="font-size:12.5px;color:rgba(26,26,26,0.5);margin-bottom:24px">Consultations run 30 minutes. Times shown are converted to your local timezone automatically.</p>
+        <div id="my-cal-inline" style="width:100%;min-height:650px;overflow:visible"></div>
+      </div>
+
+      <div class="reveal" style="margin-top:40px;text-align:center">
+        <p style="font-size:14px;color:rgba(26,26,26,0.55)">Prefer email instead? <a href="contact.html" style="color:var(--gold);font-weight:600">Send us a message</a> and we'll reply directly.</p>
       </div>
     </div>
   </section>
@@ -121,35 +118,27 @@
 
 <script src="assets/site.js"></script>
 <script>
-  var chosenCat = '';
   document.querySelectorAll('.pick').forEach(function (b) {
     b.addEventListener('click', function () {
       document.querySelectorAll('.pick').forEach(function (x) { x.classList.remove('active'); });
       b.classList.add('active');
-      chosenCat = b.dataset.cat;
+      document.getElementById('catName').textContent = b.dataset.cat;
     });
   });
-  document.getElementById('bookForm').addEventListener('submit', async function (e) {
-    e.preventDefault();
-    var v = function (id) { return document.getElementById(id).value.trim(); };
-    var btn = document.querySelector('#bookForm button[type=submit]');
-    btn.disabled = true; btn.textContent = 'Sending…';
-    try {
-      var res = await fetch('https://crm.aussiebridgejapan.com/api/lead', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: v('bName'), email: v('bEmail'), company: v('bCompany'),
-          phone: v('bPhone'), message: v('bMsg'), category: chosenCat || 'Other',
-          source: 'website-booking', website: v('bHp') })
-      });
-      if (!res.ok) throw new Error('send failed');
-      document.getElementById('bookForm').innerHTML =
-        '<p class="full" style="font-size:16px;padding:20px;background:var(--gold-soft)">Thanks — your consultation request is in. We\'ll reply to arrange a time that suits you.</p>';
-    } catch (err) {
-      // fallback: open a pre-filled email instead
-      btn.disabled = false; btn.textContent = 'Request Free Consultation';
-      var body = 'Product category: ' + (chosenCat || 'Not selected') + '\nName: ' + v('bName') + '\nEmail: ' + v('bEmail') + '\nBrand/Company: ' + v('bCompany') + '\nPhone: ' + v('bPhone') + '\n\n' + v('bMsg');
-      location.href = 'mailto:aussiebridgejapan@outlook.com?subject=' + encodeURIComponent('Free Consultation Request — ' + v('bCompany')) + '&body=' + encodeURIComponent(body);
-    }
+</script>
+<script type="text/javascript">
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", "free-consultation", { origin: "https://cal.com" });
+  Cal.ns["free-consultation"]("inline", {
+    elementOrSelector: "#my-cal-inline",
+    config: { layout: "month_view", theme: "light" },
+    calLink: "logan-wolfe-jimlrh/free-consultation",
+  });
+  Cal.ns["free-consultation"]("ui", {
+    theme: "light",
+    styles: { branding: { brandColor: "#C5A059" } },
+    hideEventTypeDetails: false,
+    layout: "month_view",
   });
 </script>
 </body>
