@@ -7,8 +7,8 @@
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#0A1128">
 <link rel="manifest" href="manifest.json">
-<link rel="icon" href="icon-192.png">
-<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" type="image/png" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -28,6 +28,7 @@
   aside { background: var(--navy); color: #fff; padding: 28px 0; position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; }
   .logo { font-family: var(--serif); font-size: 21px; padding: 0 26px 26px; border-bottom: 1px solid rgba(255,255,255,0.1); }
   .logo small { display: block; font-family: var(--sans); font-size: 9px; font-weight: 600; letter-spacing: 0.4em; color: var(--gold); text-transform: uppercase; }
+  .logo img { height: 30px; width: auto; display: block; margin-bottom: 8px; }
   .side-nav { margin-top: 18px; display: grid; }
   .side-nav button { background: none; border: 0; color: rgba(255,255,255,0.65); text-align: left; font-size: 14px; font-weight: 500; padding: 13px 26px; border-left: 3px solid transparent; transition: all .2s; }
   .side-nav button:hover { color: #fff; }
@@ -134,7 +135,7 @@
 
 <div class="app hidden" id="appRoot">
   <aside>
-    <div class="logo">Aussie Bridge<small>Japan · CRM</small></div>
+    <div class="logo"><img src="logo.png" alt="Aussie Bridge Japan"><small>CRM</small></div>
     <nav class="side-nav" id="sideNav">
       <button data-view="dashboard" class="active">Dashboard</button>
       <button data-view="pipeline">Pipeline</button>

@@ -36,6 +36,8 @@ header.site.scrolled { background: rgba(10,17,40,0.92); backdrop-filter: blur(12
 .nav { display: flex; align-items: center; justify-content: space-between; height: 76px; }
 .logo { font-family: var(--serif); font-size: 22px; color: #fff; line-height: 1.05; }
 .logo small { display: block; font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: 0.42em; color: var(--gold); text-transform: uppercase; }
+.logo img { height: 40px; width: auto; display: block; }
+footer.site .logo img { height: 34px; }
 .nav-links { display: flex; align-items: center; gap: 26px; list-style: none; }
 .nav-links a { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.75); transition: color .2s; }
 .nav-links a:hover, .nav-links a:focus-visible, .nav-links a[aria-current="page"] { color: var(--gold); }
