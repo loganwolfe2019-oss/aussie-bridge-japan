@@ -48,6 +48,8 @@ export default {
     }
 
     // ---- public: lead intake from the website forms ----
+    // Excluded from Access at the edge via the "Lead Intake public" app
+    // (destination crm.aussiebridgejapan.com/api/lead, policy: bypass/everyone).
     if (path === '/api/lead') {
       if (method !== 'POST') return json({ error: 'method not allowed' }, 405, request);
       let b;
