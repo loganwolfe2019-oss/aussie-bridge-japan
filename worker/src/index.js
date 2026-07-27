@@ -95,7 +95,7 @@ async function sendBrevoEmail(env, toEmail, toName, subject, textContent) {
     method: 'POST',
     headers: { 'api-key': env.BREVO_API_KEY, 'Content-Type': 'application/json', 'Accept': 'application/json' },
     body: JSON.stringify({
-      sender: { name: 'Aussie Bridge Japan', email: 'leads@aussiebridgejapan.com' },
+      sender: { name: 'Aussie Bridge Japan', email: 'aussiebridgejapan@outlook.com' },
       to: [{ email: toEmail, name: toName || undefined }],
       subject,
       textContent,
