@@ -11,7 +11,8 @@ CREATE TABLE IF NOT EXISTS leads (
   notes TEXT DEFAULT '',
   source TEXT DEFAULT 'manual',
   created TEXT NOT NULL,
-  updated TEXT NOT NULL
+  updated TEXT NOT NULL,
+  nurture_step INTEGER DEFAULT 0
 );
 
 CREATE TABLE IF NOT EXISTS tasks (

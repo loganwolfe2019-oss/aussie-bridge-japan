@@ -15,3 +15,10 @@ database_id = "6cfa8c66-c14b-4cde-a703-9e07993fba29"
 [[routes]]
 pattern = "crm.aussiebridgejapan.com"
 custom_domain = true
+
+[[send_email]]
+name = "SEND_EMAIL"
+destination_address = "aussiebridgejapan@outlook.com"
+
+[triggers]
+crons = ["0 22 * * *"]
