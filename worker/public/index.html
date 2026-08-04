@@ -341,7 +341,10 @@
   async function setStage(id, stage) {
     const l = db.leads.find(x => x.id === id);
     const prev = l.stage; l.stage = stage; render();
-    try { await api('PUT', '/api/leads/' + id, l); }
+    try {
+      await api('PUT', '/api/leads/' + id, l);
+      if (stage === 'Signed' && prev !== 'Signed') { await refresh(); toast('Marked Signed — invoice task added'); }
+    }
     catch (err) { l.stage = prev; render(); toast('Update failed'); }
   }
 
