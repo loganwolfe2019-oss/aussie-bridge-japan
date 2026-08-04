@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Not Found | Aussie Bridge Japan</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  .notfound { min-height: 100svh; display: flex; align-items: center; background: var(--navy); position: relative; overflow: hidden; }
+  .notfound::after { content: ""; position: absolute; right: -140px; top: -140px; width: 420px; height: 420px; border: 1px solid rgba(197,160,89,0.16); border-radius: 50%; }
+  .notfound .big { font-family: var(--serif); font-size: clamp(80px, 16vw, 160px); font-weight: 600; color: rgba(255,255,255,0.08); line-height: 1; position: absolute; right: 5%; top: 50%; transform: translateY(-50%); pointer-events: none; }
+  .notfound-links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+</style>
+</head>
+<body>
+
+<header class="site scrolled">
+  <div class="wrap nav">
+    <a href="index.html" class="logo"><img src="assets/logo.png" alt="Aussie Bridge Japan"></a>
+    <nav aria-label="Main">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="market-entry.html">Market Entry</a></li>
+        <li><a href="blog/">Blog</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="ja/" lang="ja">日本語</a></li>
+        <li><a class="btn btn-gold" href="book-consultation.html">Book Consultation</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <div class="notfound">
+    <span class="big">404</span>
+    <div class="wrap" style="position:relative">
+      <span class="kicker">Wrong Turn</span>
+      <h1 style="margin-top:20px">This Page Didn't Make It <span class="accent-i">Across the Bridge</span></h1>
+      <p class="lede">The page you're looking for doesn't exist, or it moved. Here's where you probably meant to go:</p>
+      <div class="notfound-links">
+        <a class="btn btn-gold" href="index.html">Back to Home</a>
+        <a class="btn btn-ghost" href="services.html">Our Services</a>
+        <a class="btn btn-ghost" href="blog/">Read the Blog</a>
+        <a class="btn btn-ghost" href="contact.html">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-bottom" style="border-top:0;padding-top:0">
+      <span>© 2026 Aussie Bridge Japan. All rights reserved.</span>
+      <span><a href="privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms-of-service.html">Terms of Service</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
