@@ -262,11 +262,21 @@ export default {
       const leadMatch = path.match(/^\/api\/leads\/([A-Za-z0-9]+)$/);
       if (leadMatch && method === 'PUT') {
         const b = await request.json();
+        const prev = await env.DB.prepare('SELECT brand, stage FROM leads WHERE id=?1').bind(leadMatch[1]).first();
+        const newStage = s(b.stage, 40);
         await env.DB.prepare(
           `UPDATE leads SET brand=?2, contact=?3, email=?4, phone=?5, category=?6, stage=?7, value=?8, city=?9, notes=?10, updated=?11 WHERE id=?1`
         ).bind(leadMatch[1], s(b.brand, 200), s(b.contact, 200), s(b.email, 200), s(b.phone, 50),
-               s(b.category, 60), s(b.stage, 40), Number(b.value) || 0, s(b.city, 60),
+               s(b.category, 60), newStage, Number(b.value) || 0, s(b.city, 60),
                s(b.notes, 4000), new Date().toISOString()).run();
+        // Newly signed (not just re-saved while already Signed) — drop an invoice reminder in Tasks.
+        if (prev && prev.stage !== 'Signed' && newStage === 'Signed') {
+          const brand = s(b.brand, 200) || prev.brand;
+          await env.DB.prepare(
+            `INSERT INTO tasks (id, title, due, leadId, done, created) VALUES (?1,?2,?3,?4,0,?5)`
+          ).bind(uid(), `Send invoice — ${brand} (onboarding fee + retainer)`,
+                 new Date().toISOString().slice(0, 10), leadMatch[1], new Date().toISOString()).run();
+        }
         return json({ ok: true }, 200, request);
       }
       if (leadMatch && method === 'DELETE') {
