@@ -44,7 +44,9 @@ broke somewhere first — treat them that way.
 
 9. REMEMBER PROACTIVELY. When you learn something durable about ABJ, save
    it (file + one index line) without being asked, and tell me you saved
-   it.
+   it. Memory lives in this git repo, not a cloud drive — so at the end of
+   any session where memory or these rules changed, commit and push, and
+   tell me you did. Uncommitted memory is not backed up.
 
 10. LEARN FROM CORRECTIONS. When I correct you, save the lesson so it never
     happens twice. And when something goes wrong twice, stop writing rules
