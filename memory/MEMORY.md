@@ -28,6 +28,7 @@ per fact file. Full detail lives in memory/*.md.
 - [What ABJ is](business-what-abj-is.md) — brand representation for Australian brands entering/distributing in Japan; mix of ongoing rep and project setup
 - [Stage now](stage-now.md) — Sept 2026: early, testing via outbound; one meeting (Good Drinks); no brands signed, no revenue
 - [Good Drinks meeting](good-drinks-meeting.md) — stalled on full-container-load first order vs distributor caution; export sign-off is owner/founder
+- [Good Drinks re-approach](good-drinks-reapproach.md) — staged increasing-volume plan (small first shipment → scale on a written schedule); chosen over a multi-brand container (no other brands yet)
 - [Differentiator](differentiator.md) — own committed Japan distribution network that wants Australian brands, plus Logan's background and partner connections
 - [Distributor connection is confidential](distributor-family-confidential.md) — Japan distributor is family; never mention in brand-facing or public copy
 - [Product range](product-range.md) — wide range of Australian consumer categories, not alcohol-only; alcohol is just where early examples sit
