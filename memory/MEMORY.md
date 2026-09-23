@@ -49,6 +49,7 @@ per fact file. Full detail lives in memory/*.md.
 ### The operation
 - [Team and roles](team-and-roles.md) — Logan + Mike Kelly (AU relationships; owns Cork & Barrel) + Japan distributor's owner joining ABJ (Sept 2026) — brand mgmt + warehousing + distribution under one banner
 - [Tools stack](tools-stack.md) — GitHub Pages site, custom Cloudflare Worker + D1 CRM at crm.aussiebridgejapan.com, Outlook email; payments/accounting/socials not set up
+- [Buyer ordering app (planned)](buyer-ordering-app.md) — Base44 app for Japanese buyers: catalog, ordering, rep account-switching; separate from brand CRM; spec in specs/
 - [Time sinks](time-sinks.md) — chasing brands, CRM tidy-up, marketing; automate CRM tidy-up and follow-up chasing first
 - [Tried, didn't work](tried-didnt-work.md) — FB/Instagram marketing (patchy consistency); Good Drinks stall
 
