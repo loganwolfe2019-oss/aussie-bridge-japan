@@ -25,14 +25,14 @@ per fact file. Full detail lives in memory/*.md.
 ## Index
 
 ### The business
-- [What ABJ is](business-what-abj-is.md) — brand representation for Australian brands entering/distributing in Japan; mix of ongoing rep and project setup
+- [What ABJ is](business-what-abj-is.md) — brand representation for Australian brands entering/distributing in Japan; moving to vertically integrated model (Sept 2026)
 - [Stage now](stage-now.md) — Sept 2026: early, testing via outbound; one meeting (Good Drinks); no brands signed, no revenue
 - [Good Drinks meeting](good-drinks-meeting.md) — stalled on full-container-load first order vs distributor caution; export sign-off is owner/founder
 - [Good Drinks re-approach](good-drinks-reapproach.md) — staged increasing-volume plan (small first shipment → scale on a written schedule); chosen over a multi-brand container (no other brands yet)
 - [Differentiator](differentiator.md) — own committed Japan distribution network that wants Australian brands, plus Logan's background and partner connections
-- [Distributor connection is confidential](distributor-family-confidential.md) — Japan distributor is family; never mention in brand-facing or public copy
+- [Distributor connection is confidential](distributor-family-confidential.md) — Japan distributor is family and its owner is joining ABJ (Sept 2026); family link never mentioned in brand-facing or public copy
 - [Product range](product-range.md) — wide range of Australian consumer categories, not alcohol-only; alcohol is just where early examples sit
-- [Pricing model (draft)](pricing-model-draft.md) — paid market assessment + success-based commission/margin + share of distributor gross profit; brand pays freight; no percentages stored
+- [Pricing model](pricing-model-draft.md) — public model (Sept 2026): sales commission + warehousing & representation, brand-by-brand terms; no percentages stored
 - [Cost to deliver](cost-to-deliver.md) — rough ~A$10k/brand, mostly Logan's time; cash costs not yet estimated
 
 ### The customer
@@ -47,7 +47,7 @@ per fact file. Full detail lives in memory/*.md.
 - [Customer service rules](customer-service-rules.md) — follow up ASAP; Claude drafts, Logan proofreads before send; when wrong, polite, never client's fault
 
 ### The operation
-- [Team and roles](team-and-roles.md) — Logan (all, shifting to Japan side) + Mike Kelly (AU brand relationships/deals; owns Cork & Barrel); Japan distributor only acts once product lands
+- [Team and roles](team-and-roles.md) — Logan + Mike Kelly (AU relationships; owns Cork & Barrel) + Japan distributor's owner joining ABJ (Sept 2026) — brand mgmt + warehousing + distribution under one banner
 - [Tools stack](tools-stack.md) — GitHub Pages site, custom Cloudflare Worker + D1 CRM at crm.aussiebridgejapan.com, Outlook email; payments/accounting/socials not set up
 - [Time sinks](time-sinks.md) — chasing brands, CRM tidy-up, marketing; automate CRM tidy-up and follow-up chasing first
 - [Tried, didn't work](tried-didnt-work.md) — FB/Instagram marketing (patchy consistency); Good Drinks stall

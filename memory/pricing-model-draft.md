@@ -1,3 +1,3 @@
-# Pricing model (draft, not final)
+# Pricing / commercial model
 
-Current thinking: a paid market assessment (structure still undecided), plus success-based commission/margin, plus a share of the Japanese distributor's gross profit on sales. The brand pays freight to Japan. No retainer or upfront fee decided. Do NOT store specific percentages here — they will change; look them up live.
+Public model (live on services.html, Sept 2026): sales-based commission on product sold, plus ongoing warehousing and brand representation. Performance-aligned, no onboarding fee or retainer. Exact terms agreed brand-by-brand during the assessment stage. This supersedes the earlier draft (distributor gross-profit share + brand pays freight) now that distribution is merging into ABJ itself. Do NOT store specific percentages — look them up live.
